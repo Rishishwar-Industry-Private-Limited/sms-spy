@@ -6,7 +6,7 @@ app.use(express.json());
 
 // --- AAPKI DETAILS (VERIFIED FROM SCREENSHOTS) ---
 const BOT_TOKEN = '8394719862:AAGdG06eMVj_Mz4hFCqv-jHrmyiSqsDXppk'; 
-const CHAT_ID = '7128071523'; 
+const CHAT_ID = '8394719862'; 
 // -----------------------------------------------
 
 // Root route (Check karne ke liye ki server chal raha hai ya nahi)
